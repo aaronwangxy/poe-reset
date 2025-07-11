@@ -2,14 +2,29 @@ from pynput import keyboard
 import requests
 
 KEY = 'w'
-BASE_URL = ""
+BASE_URL = "https://magpie-novel-partly.ngrok-free.app"
+TOKEN    = "aaronwangwaggityfiveways"
 
 def notify_server():
-    requests.post(BASE_URL + "/ping")
+    try:
+        r = requests.post(
+            f"{BASE_URL}/ping",
+            headers={"X-Token": TOKEN},
+            data=""                   
+        )
+        print("[client]  ", r.status_code, r.text)
+    except Exception as exc:
+        print("[client]  Request failed:", exc)
+
 
 def process_key_press(key):
-    if key.char == KEY:
-        notify_server()
+    try:
+        if key.char and key.char.lower() == KEY:
+            notify_server()
+    except AttributeError:
+        # Key.space, Key.shift, etc. -> just ignore
+        pass
+        
 
 def main():
     with keyboard.Listener(on_press=process_key_press) as listener:
