@@ -3,6 +3,7 @@ from pynput.keyboard import Controller
 
 app = FastAPI()
 kbd = Controller()
+dash_key = 'q'
 
 secret = ''
 
@@ -11,8 +12,8 @@ def execute_response() -> None:
     Called whenever we receive /ping.
     Presses the *Q* key once, then returns.
     """
-    kbd.press('q')
-    kbd.release('q')
+    kbd.press(dash_key)
+    kbd.release(dash_key)
 
 @app.post("/ping")
 def ping(x_token: str = Header(None)):
