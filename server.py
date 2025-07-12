@@ -7,14 +7,14 @@ app = FastAPI()
 kbd = Controller()
 dash_key = 'q'
 
-secret = ''
+secret = 'aaronwangwaggityfiveways'
 
 def execute_response() -> None:
     """
     Called whenever we receive /ping.
     Presses the *Q* key once, then returns.
     """
-    time.sleep(random.uniform(0.020, 0.100))
+    time.sleep(random.uniform(0.010, 0.040))
     kbd.press(dash_key)
     time.sleep(random.uniform(0.040, 0.060))
     kbd.release(dash_key)
