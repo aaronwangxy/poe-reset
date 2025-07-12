@@ -16,7 +16,7 @@ def execute_response() -> None:
     """
     time.sleep(random.uniform(0.020, 0.100))
     kbd.press(dash_key)
-    time.sleep(random.uniform(0.020, 0.100))
+    time.sleep(random.uniform(0.040, 0.060))
     kbd.release(dash_key)
 
 @app.post("/ping")
