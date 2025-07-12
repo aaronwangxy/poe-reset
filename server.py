@@ -7,7 +7,7 @@ app = FastAPI()
 kbd = Controller()
 dash_key = 'q'
 
-secret = 'aaronwangwaggityfiveways'
+secret = ''
 
 def execute_response() -> None:
     """
