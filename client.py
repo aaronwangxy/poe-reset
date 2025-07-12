@@ -2,8 +2,8 @@ from pynput import keyboard
 import requests
 
 KEY = 'w'
-BASE_URL = "https://magpie-novel-partly.ngrok-free.app"
-TOKEN    = "aaronwangwaggityfiveways"
+BASE_URL = ""
+TOKEN    = ""
 
 def notify_server():
     try:

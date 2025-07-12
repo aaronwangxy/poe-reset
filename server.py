@@ -4,7 +4,7 @@ from pynput.keyboard import Controller
 app = FastAPI()
 kbd = Controller()
 
-secret = 'aaronwangwaggityfiveways'
+secret = ''
 
 def execute_response() -> None:
     """
