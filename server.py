@@ -2,12 +2,16 @@ from fastapi import FastAPI, Header, HTTPException
 from pynput.keyboard import Controller
 import time
 import random
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = FastAPI()
 kbd = Controller()
 dash_key = 'q'
 
-secret = ''
+TOKEN = os.getenv("TOKEN")
 
 def execute_response() -> None:
     """
@@ -21,7 +25,7 @@ def execute_response() -> None:
 
 @app.post("/ping")
 def ping(x_token: str = Header(None)):
-    if x_token != secret:
+    if x_token != TOKEN:
         raise HTTPException(status_code=401)
     execute_response()
     return {"status": "ok"}
