@@ -4,10 +4,11 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-
-KEY = 'w'
 BASE_URL = os.getenv("BASE_URL")
 TOKEN = os.getenv("TOKEN")
+
+DASH_KEY = "w"
+EXIT_KEY = ","
 
 def notify_server():
     try:
@@ -23,8 +24,10 @@ def notify_server():
 
 def process_key_press(key):
     try:
-        if key.char and key.char.lower() == KEY:
+        if key.char and key.char.lower() == DASH_KEY:
             notify_server()
+        if key.char == EXIT_KEY:
+            exit()
     except AttributeError:
         # Key.space, Key.shift, etc. -> just ignore
         pass
