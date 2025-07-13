@@ -1,9 +1,13 @@
 from pynput import keyboard
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 KEY = 'w'
-BASE_URL = ""
-TOKEN    = ""
+BASE_URL = os.getenv("BASE_URL")
+TOKEN = os.getenv("TOKEN")
 
 def notify_server():
     try:
